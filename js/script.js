@@ -11,7 +11,7 @@ class animal {
     }
     display() {
         return `
-        <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 tzl justify-content-center">
             <div class="card" style="width: 18rem;">
                 <img src="${this.img}" class="card-img-top" style="height:20rem; object-fit:cover">
                 <div class="text-center bg-dark text-white p-1">${this.name}</div>
@@ -19,7 +19,7 @@ class animal {
                   <p class="card-text">Gender: ${this.gender}</p>
                   <p class="card-text">Age: ${this.age}</p>
                   <p class="card-text">Size: ${this.size}</p> 
-                  <h1 class="text-center btn d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">Vaccine: ${this.vaccine}</h1>
+                  <h1 class="text-center btn d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">${this.vaccine ? "Im Done <img src='../img/hand.thumbsup.fill@2x.png' class='iconica'>" : "I need vaccine <img src='../img/hand.thumbsup.fill@2x kopija.png' class='iconica'>"}</h1>
                 </div>
               </div>
         </div>`;
@@ -34,7 +34,7 @@ class cat extends animal {
     }
     display() {
         return `
-        <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 tzl justify-content-center">
             <div class="card" style="width: 18rem;">
                 <img src="${this.img}" class="card-img-top" style="height:20rem; object-fit:cover">
                 <div class="text-center bg-dark text-white p-1">${this.name}</div>
@@ -42,12 +42,12 @@ class cat extends animal {
                     <p class="card-text">Gender: ${this.gender}</p>
                     <p class="card-text">Age: ${this.age}</p>
                     <p class="card-text">Size: ${this.size}</p>
-                    <h1 class="text-center btn d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">Vaccine: ${this.vaccine}</h1>
+                    <h1 class="text-center btn d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">${this.vaccine ? "Im Done <img src='../img/hand.thumbsup.fill@2x.png' class='iconica'>" : "I need vaccine <img src='../img/hand.thumbsup.fill@2x kopija.png' class='iconica'>"}</h1>
                 </div>
                 <div class="container">
                 <p class="card-text">Breed: ${this.breed}</p>
                 <p class="card-text">Fur color: ${this.furColor}</p>
-                <p class="card-text text-center">Breed info: 
+                <p class="card-text">Breed info: 
                 <a href="">${this.URLbreed}</a>
                 </div>
                 
@@ -65,7 +65,7 @@ class dog extends animal {
     }
     display() {
         return `
-            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-12 tzl justify-content-center">
                 <div class="card" style="width: 18rem;">
                     <img src="${this.img}" class="card-img-top" style="height:20rem; object-fit:cover">
                     <div class="text-center bg-dark text-white p-1">${this.name}</div>
@@ -73,7 +73,7 @@ class dog extends animal {
                       <p class="card-text">Gender: ${this.gender}</p>
                       <p class="card-text">Age: ${this.age}</p>
                       <p class="card-text">Size: ${this.size}</p> 
-                      <h1 class="text-center btn d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">Vaccine: ${this.vaccine}</h1>
+                      <h1 class="text-center btn d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">${this.vaccine ? "Im Done <img src='../img/hand.thumbsup.fill@2x.png' class='iconica'>" : "I need vaccine <img src='../img/hand.thumbsup.fill@2x kopija.png' class='iconica'>"}</h1>
                     </div>
                     <div class="container">
                     <p class="card-text">Breed: ${this.breed}</p>
@@ -103,8 +103,8 @@ function agesort() {
 }
 ;
 function vacsort() {
-    call.sort(function (x, y) {
-        return x.vaccine - y.vaccine;
+    call.sort(function (pl, gl) {
+        return pl.vaccine - gl.vaccine;
     });
     document.querySelector(".ruf").innerHTML = "";
     cards();
