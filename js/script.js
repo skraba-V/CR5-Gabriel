@@ -19,7 +19,7 @@ class animal {
                   <p class="card-text">Gender: ${this.gender}</p>
                   <p class="card-text">Age: ${this.age}</p>
                   <p class="card-text">Size: ${this.size}</p> 
-                  <h1 class="text-center btn d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">${this.vaccine ? "Im Done <img src='../img/hand.thumbsup.fill@2x.png' class='iconica'>" : "I need vaccine <img src='../img/hand.thumbsup.fill@2x kopija.png' class='iconica'>"}</h1>
+                  <h1 class="text-center btn-vaccine btn d-flex dibo justify-content-center bg-${this.vaccine ? "success" : "danger"}">${this.vaccine ? "Im Done <img src='../img/hand.thumbsup.fill@2x.png' class='iconica'>" : "I need vaccine <img src='../img/hand.thumbsup.fill@2x kopija.png' class='iconica'>"}</h1>
                 </div>
               </div>
         </div>`;
@@ -42,7 +42,7 @@ class cat extends animal {
                     <p class="card-text">Gender: ${this.gender}</p>
                     <p class="card-text">Age: ${this.age}</p>
                     <p class="card-text">Size: ${this.size}</p>
-                    <h1 class="text-center btn d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">${this.vaccine ? "Im Done <img src='../img/hand.thumbsup.fill@2x.png' class='iconica'>" : "I need vaccine <img src='../img/hand.thumbsup.fill@2x kopija.png' class='iconica'>"}</h1>
+                    <h1 class="text-center btn dibo d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">${this.vaccine ? "Im Done <img src='../img/hand.thumbsup.fill@2x.png' class='iconica'>" : "I need vaccine <img src='../img/hand.thumbsup.fill@2x kopija.png' class='iconica'>"}</h1>
                 </div>
                 <div class="container">
                 <p class="card-text">Breed: ${this.breed}</p>
@@ -73,7 +73,7 @@ class dog extends animal {
                       <p class="card-text">Gender: ${this.gender}</p>
                       <p class="card-text">Age: ${this.age}</p>
                       <p class="card-text">Size: ${this.size}</p> 
-                      <h1 class="text-center btn d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">${this.vaccine ? "Im Done <img src='../img/hand.thumbsup.fill@2x.png' class='iconica'>" : "I need vaccine <img src='../img/hand.thumbsup.fill@2x kopija.png' class='iconica'>"}</h1>
+                      <h1 class="text-center btn dibo d-flex justify-content-center bg-${this.vaccine ? "success" : "danger"}">${this.vaccine ? "Im Done <img src='../img/hand.thumbsup.fill@2x.png' class='iconica'>" : "I need vaccine <img src='../img/hand.thumbsup.fill@2x kopija.png' class='iconica'>"}</h1>
                     </div>
                     <div class="container">
                     <p class="card-text">Breed: ${this.breed}</p>
@@ -111,8 +111,20 @@ function vacsort() {
 }
 ;
 function cards() {
+    const animalscontainer = document.querySelector(".ruf");
+    animalscontainer.innerHTML = "";
     call.forEach((val) => {
-        document.querySelector(".ruf").innerHTML += val.display();
+        animalscontainer.innerHTML += val.display();
     });
+    chng();
 }
 cards();
+function chng() {
+    let btns = document.getElementsByClassName("dibo");
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            call[i].vaccine = !call[i].vaccine;
+            cards();
+        });
+    }
+}
